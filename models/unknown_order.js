@@ -16,9 +16,10 @@ module.exports = (sequelize, DataTypes) => {
     }
   };
   unknown_order.init({
-    user_id: DataTypes.INTEGER,
+    userId: DataTypes.INTEGER,
     deliveryTime: DataTypes.STRING,
-    paymentMethod: DataTypes.STRING
+    paymentMethod: DataTypes.STRING,
+    state : DataTypes.BOOLEAN
   }, {
     sequelize,
     modelName: 'unknown_order',

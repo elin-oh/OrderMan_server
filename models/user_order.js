@@ -13,13 +13,15 @@ module.exports = (sequelize, DataTypes) => {
       // define association here
       models.user_order.belongsTo(models.user);
       models.user_order.hasMany(models.user_order_item);
-
     }
   };
   user_order.init({
-    user_id: DataTypes.INTEGER,
+    userId: DataTypes.INTEGER,
     deliveryTime: DataTypes.STRING,
-    paymentMethod: DataTypes.STRING
+    paymentMethod: DataTypes.STRING,
+    date: DataTypes.STRING,
+    hopePrice: DataTypes.INTEGER,
+    state : DataTypes.BOOLEAN
   }, {
     sequelize,
     modelName: 'user_order',
