@@ -1,5 +1,5 @@
 const jwt = require("jsonwebtoken");
-const { user, oauth_user } = require("../../models");
+const { user, oauth } = require("../../models");
 
 // password 암호화 진행
 const crypto = require("crypto");
@@ -8,13 +8,13 @@ const { secret } = require("../../config/config");
 module.exports = {
   get: async (req, res) => {
     try {
-      if (req.cookie.userType === "standard") {
-        const JWT = jwt.verify(req.cookies.accessToken, secret.secret_jwt);
+      const JWT = jwt.verify(req.cookies.accessToken, secret.secret_jwt);
+      console.log(JWT);
+      if (req.cookies.userType === "standard") {
         const userId = await user.findOne({ where: { userId: JWT.userId } })
         res.status(200).send("200")
-      } else if (req.cookie.userType === "oauth") {
-        const JWT = jwt.verify(req.cookies.accessToken, secret.secret_jwt);
-        const userId = await oauth_user.findOne({ where: { userId: JWT.userId } })
+      } else if (req.cookies.userType === "oauth") {
+        const userId = await oauth.findOne({ where: { userId: JWT.userId } })
         res.status(200).send("200")
       }
     } catch (err) {
