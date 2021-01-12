@@ -18,6 +18,7 @@ module.exports = {
         res.status(203).send("203")
       }
     } catch (err) {
+      console.log('login Error*********', err);
       if (err.message === "jwt must be provided") {
         res.status(202).send("202")
       }
@@ -56,8 +57,8 @@ module.exports = {
           secret.secret_jwt,
           { expiresIn: "7d" }
         );
-        res.cookie("accessToken", accessToken, { secure: true, sameSite: 'none' });
-        res.cookie("userType", "standard", { secure: true, sameSite: 'none' });
+        res.cookie("accessToken", accessToken);
+        res.cookie("userType", "standard");
         res
           .status(200)
           .json({ accessToken: accessToken, message: "login success" });

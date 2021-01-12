@@ -78,9 +78,9 @@ module.exports = {
                 }, []);
 
                 // unknown 유저는 date column이 존재 하지 않기 때문에 date는 공백으로 둔다.
-		
-		if(ele.userId==null){ ele.userId = 1}
-		console.log(ele.userId)
+
+                if (ele.userId == null) { ele.userId = 1 }
+                console.log(ele.userId)
                 ele["date"] = "";
                 return [...acc, {
                     userType: "unknown",

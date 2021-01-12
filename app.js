@@ -21,12 +21,12 @@ const mypageRouter = require('./routes/mypage')
 const { secret } = require("./config/config");
 
 const app = express();
-const port = 8080;
+const port = 5000;
 
 app.use(
   cors({
-    origin: true,
-    methods: ["GET", "POST", "OPTIONS"],
+    origin: ['http://localhost:3000'],
+    methods: ['GET', 'POST', 'PUT', 'DELETE'],
     credentials: true,
   })
 );

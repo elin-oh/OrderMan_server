@@ -23,9 +23,9 @@ module.exports = {
         secret.secret_jwt,
         { expiresIn: "7d" }
       );
-      res.cookie("accessToken", accessToken, { secure: true, sameSite: 'none' });
-      res.cookie("userType", "oauth", { secure: true, sameSite: 'none' });
-      res.clearCookie("oauthToken", { secure: true, sameSite: "none" })
+      res.cookie("accessToken", accessToken);
+      res.cookie("userType", "oauth");
+      res.clearCookie("oauthToken")
       res.status(200).send("Oauth sign up successed");
     } catch (err) {
       res.status(202).send(err);
@@ -57,8 +57,8 @@ module.exports = {
             secret.secret_jwt,
             { expiresIn: "7d" }
           );
-          res.cookie("accessToken", accessToken, { secure: true, sameSite: 'none' });
-          res.cookie("userType", "oauth", { secure: true, sameSite: 'none' });
+          res.cookie("accessToken", accessToken);
+          res.cookie("userType", "oauth");
           res.status(200)
             .json({ accessToken: accessToken, message: "Already exist user, welcome to login" });
         } else {
@@ -68,7 +68,7 @@ module.exports = {
             secret.secret_jwt,
             { expiresIn: "7d" }
           );
-          res.cookie("oauthToken", oauthToken, { secure: true, sameSite: 'none' });
+          res.cookie("oauthToken", oauthToken);
           res.status(202).send("User doesn't exist. Please sign up firstly");
         }
       })

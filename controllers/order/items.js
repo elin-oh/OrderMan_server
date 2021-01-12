@@ -72,7 +72,7 @@ module.exports = {
           })
         }
         // 주문완료 후 장바구니 쿠키 제거
-        res.clearCookie("tempToken", { secure: true, sameSite: "none" })
+        res.clearCookie("tempToken")
         res.status(200).send("your order is successed")
       }
       // 2. 회원분기 처리: Oauth회원은 oauth
@@ -114,7 +114,7 @@ module.exports = {
           })
         }
         // 주문완료 후 장바구니 쿠키 제거
-        res.clearCookie("tempToken", { secure: true, sameSite: "none" })
+        res.clearCookie("tempToken")
         res.status(200).send("your order is successed")
       }
     }
@@ -149,7 +149,7 @@ module.exports = {
           })
         }
         // 주문완료 후 장바구니 쿠키 제거
-        res.clearCookie("tempToken", { secure: true, sameSite: "none" })
+        res.clearCookie("tempToken")
         res.status(200).send("your order is successed")
       }
       else {

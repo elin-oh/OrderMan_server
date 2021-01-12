@@ -8,11 +8,11 @@ module.exports = {
             mobile: mobile,
             address: address,
             brand: brand,
-	    birth : birth
+            birth: birth
         })
 
-        res.cookie("unknown_id", data.dataValues.id, { secure: true,sameSite:"none" });
-        res.cookie("userType", "unknown",{secure:true,sameSite:"none"});
+        res.cookie("unknown_id", data.dataValues.id);
+        res.cookie("userType", "unknown");
         res.status(200).json("success");
     },
 };
